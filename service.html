@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawbbles · pet services</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ===== Global Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            padding-top: 160px; /* space for fixed header + new nav */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff7e5f;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #e56a4d;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ===== top header ===== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            padding: 0.8rem 0;
+            text-align: center;
+        }
+
+        .logo1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo1 i {
+            margin-right: 6px;
+        }
+
+        .main-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* ===== NEW NAVIGATION (exactly as requested: Home, Products, Training, Services, Events, Profile) ===== */
+        nav {
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-center-container {
+            display: flex;
+            justify-content: center;   
+        }
+
+        .nav-items {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            margin: 0;
+            padding: 0.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-items li {
+            position: relative;
+        }
+
+        .nav-items li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-items li a i {
+            color: #ff7e5f;
+            font-size: 1.1rem;
+        }
+
+        .nav-items li a:hover,
+        .nav-items li a.active {
+            color: #ff7e5f;
+            border-bottom-color: #ff7e5f;
+        }
+
+        /* dropdown removed – only flat items as specified */
+
+        /* ===== Hero section ===== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* service sections */
+        .service-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .service-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+
+        .service-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .service-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-details {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .service-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff7e5f;
+        }
+
+        .service-details ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-details li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-details li:before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #ff7e5f;
+        }
+
+        /* benefits / FAQ / booking */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #ff7e5f;
+            margin-bottom: 20px;
+        }
+
+        .faq-section {
+            background: white;
+        }
+
+        .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .faq-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            max-height: 500px;
+        }
+
+        .faq-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .faq-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .accordion-item {
+            border: none;
+            border-radius: 8px !important;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .accordion-button {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        .booking-section {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .custom-modal .modal-content {
+            border-radius: 8px;
+        }
+
+        .custom-modal .form-group {
+            margin-bottom: 20px;
+        }
+
+        .custom-modal .form-group input,
+        .custom-modal .form-group select,
+        .custom-modal .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .custom-modal .submit-btn {
+            width: 100%;
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .custom-modal .submit-btn:hover {
+            background-color: #e56a4d;
+        }
+
+        /* responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 200px;
+            }
+
+            .nav-items {
+                gap: 1rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .service-content {
+                flex-direction: column;
+            }
+
+            .faq-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="site-header">
+    <header class="main-header">
+        <div class="logo1"><i class="fas fa-paw"></i> Pawbbles</div>
+        <p style="font-size: 0.9rem;">Premium pet services for your furry friends</p>
+    </header>
+
+    <!-- ===== NAVBAR exactly as you specified: only those six items, flat, no dropdowns ===== -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-center-container">
+                <ul class="nav-items">
+                    <!-- <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li> -->
+                    <li><a href="product.html"><i class="fas fa-shopping-bag"></i> Products</a></li>
+                    <li><a href="training.html"><i class="fas fa-graduation-cap"></i> Training</a></li>
+                    <li><a href="service.html"><i class="fas fa-paw"></i> Services</a></li>
+                    <li><a href="event.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Premium Pet Care Services</h1>
+        <p>Your pet deserves the best care from trusted professionals</p>
+        <a href="#grooming" class="btn">Explore Services</a>
+    </div>
+</section>
+
+<!-- Grooming Section -->
+<section id="grooming" class="service-section">
+    <div class="container">
+        <h2>Professional Grooming Services</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog being groomed">
+            </div>
+            <div class="service-details">
+                <h3>Keep Your Pet Looking Their Best</h3>
+                <p>Our professional grooming services help maintain your pet's hygiene and appearance while ensuring their comfort throughout the process.</p>
+                <ul>
+                    <li>Bath & blow dry with premium pet-safe products</li>
+                    <li>Haircut & styling tailored to your pet's breed</li>
+                    <li>Nail trimming and filing</li>
+                    <li>Ear cleaning and teeth brushing</li>
+                    <li>De-shedding treatments</li>
+                    <li>Flea & tick baths when needed</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('grooming')">Book Grooming Appointment</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Training Section -->
+<section id="training" class="service-section">
+    <div class="container">
+        <h2>Professional Training Services</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog training">
+            </div>
+            <div class="service-details">
+                <h3>Train Your Pet the Right Way</h3>
+                <p>Our certified trainers use positive reinforcement techniques to help your pet learn good behavior and new skills in a stress-free environment.</p>
+                <ul>
+                    <li>Basic obedience training (sit, stay, come, etc.)</li>
+                    <li>Leash walking and manners training</li>
+                    <li>Puppy socialization classes</li>
+                    <li>Behavior modification for problem behaviors</li>
+                    <li>Advanced training and tricks</li>
+                    <li>Service dog training programs</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('training')">Book Training Session</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Boarding Section -->
+<section id="boarding" class="service-section">
+    <div class="container">
+        <h2>Premium Boarding Services</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1551290464-66719418ca54?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog boarding">
+            </div>
+            <div class="service-details">
+                <h3>Safe and Comfortable Boarding</h3>
+                <p>Our boarding facilities provide a home-away-from-home experience for your pet with 24/7 supervision and plenty of playtime.</p>
+                <ul>
+                    <li>Spacious, climate-controlled kennels</li>
+                    <li>Regular exercise and play sessions</li>
+                    <li>Individual attention from our staff</li>
+                    <li>Medication administration if needed</li>
+                    <li>Webcam access to check on your pet</li>
+                    <li>Grooming services available during stay</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('boarding')">Book Boarding Stay</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sitting Section -->
+<section id="sitting" class="service-section">
+    <div class="container">
+        <h2>In-Home Pet Sitting</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pet sitting">
+            </div>
+            <div class="service-details">
+                <h3>Personalized Care in Your Home</h3>
+                <p>Our pet sitters provide one-on-one attention to your pets in the comfort of their own home, maintaining their normal routine.</p>
+                <ul>
+                    <li>Daily visits or overnight stays</li>
+                    <li>Feeding according to your schedule</li>
+                    <li>Medication administration if needed</li>
+                    <li>Playtime and exercise</li>
+                    <li>Litter box cleaning/waste pickup</li>
+                    <li>Mail/newspaper collection and plant care</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('sitting')">Book Pet Sitting</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Walking Section -->
+<section id="walking" class="service-section">
+    <div class="container">
+        <h2>Professional Dog Walking</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dog walking">
+            </div>
+            <div class="service-details">
+                <h3>Regular Exercise for Your Dog</h3>
+                <p>Our professional dog walkers provide regular exercise and outdoor time tailored to your dog's needs and energy level.</p>
+                <ul>
+                    <li>30-minute or 60-minute walks</li>
+                    <li>Individual or group walk options</li>
+                    <li>GPS-tracked walks with route maps</li>
+                    <li>Fresh water and treats provided</li>
+                    <li>Paw cleaning after walks</li>
+                    <li>Detailed report after each walk</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('walking')">Book Pet Walking</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Veterinary Section -->
+<section id="veterinary" class="service-section">
+    <div class="container">
+        <h2>Veterinary Care Services</h2>
+        <div class="service-content">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1471914396610-dbaf7a524cd6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Veterinary care">
+            </div>
+            <div class="service-details">
+                <h3>Comprehensive Medical Care</h3>
+                <p>Our licensed veterinarians provide complete medical care for your pets, from routine checkups to emergency services.</p>
+                <ul>
+                    <li>Wellness exams and vaccinations</li>
+                    <li>Dental care and cleanings</li>
+                    <li>Surgical procedures</li>
+                    <li>Diagnostic testing (bloodwork, x-rays)</li>
+                    <li>Emergency and urgent care</li>
+                    <li>Nutritional counseling</li>
+                </ul>
+                <button class="btn service-book-btn" onclick="bookingmodal('veterinary')">Book Veterinary Appointment</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="container">
+    <div class="services-header">
+        <h2>Why Choose Us</h2>
+        <p>We provide exceptional care with these key benefits</p>
+    </div>
+    <div class="benefits-grid">
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-store"></i></div>
+            <h3>E-marketplace for Pet Services</h3>
+            <p>First of its kind e-marketplace with a selection of verified vendors to suit individual needs.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-tag"></i></div>
+            <h3>Transparent Pricing</h3>
+            <p>A wide range of pet care experts to match specific requirements and budgets. No hidden costs.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-user-shield"></i></div>
+            <h3>Quality Trusted Professionals</h3>
+            <p>Best pet care experts with assured third party background checks and high-performance standards.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-star"></i></div>
+            <h3>Reviews and Feedbacks</h3>
+            <p>Both parents and experts can rate each other for real and honest feedback.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-home"></i></div>
+            <h3>Home Services</h3>
+            <p>Professional pet care services delivered right to your doorstep for maximum convenience.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3>Safety Guaranteed</h3>
+            <p>All services come with insurance coverage and satisfaction guarantees for your peace of mind.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <div class="services-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about our pet services</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-image">
+                <img src="https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Happy dog with owner">
+            </div>
+            <div class="faq-content">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">How To Train Your Pet Dog?</button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Consistent training with rewards and patience helps reinforce good habits in dogs. Our certified trainers use positive reinforcement techniques tailored to your pet's personality.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">How To Manage Your Pets?</button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Create a routine, provide proper nutrition, and give regular exercise and affection. Our experts can help you establish a customized care plan.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What Is The Best Grooming For Your Pets?</button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Regular brushing, bathing, and nail trimming help keep your pet clean and healthy. Our groomers use pet-safe products specific to breed and coat.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">What Are The Requirements For Sitting Pets?</button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Safe space, feeding schedule, medical details, and playtime are key. Our sitters follow detailed care instructions and send updates.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">How often should I bring my pet for grooming?</button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Most pets benefit from grooming every 4-8 weeks depending on breed and coat type. Long-haired breeds typically require monthly grooming.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">What vaccinations are required for boarding?</button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">We require proof of current rabies, distemper, parvo, and bordetella for dogs. Cats need FVRCP and rabies. Bring records at drop-off.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Booking CTA -->
+<section id="contact" class="booking-section">
+    <div class="container">
+        <h2>Ready to Book an Appointment?</h2>
+        <p>Schedule a service for your pet today and experience the pawbbles difference</p>
+        <h2>Call Us on <i class="fas fa-phone"></i> 987654321</h2>
+        <button id="bookBtn" class="btn" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button><br>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade custom-modal" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Book a Service</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="bookingForm">
+                <div class="modal-body">
+                    <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" required class="form-control"></div>
+                    <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" required class="form-control"></div>
+                    <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" required class="form-control"></div>
+                    <div class="form-group"><label for="pet-type">Pet Type</label><select id="pet-type" name="pet-type" required class="form-select"><option value="">Select Pet Type</option><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+                    <div class="form-group"><label for="service">Service Needed</label><select id="service" name="service" required class="form-select"><option value="">Select Service</option><option value="grooming">Grooming</option><option value="training">Training</option><option value="boarding">Boarding</option><option value="sitting">Pet Sitting</option><option value="walking">Dog Walking</option><option value="veterinary">Veterinary Care</option></select></div>
+                    <div class="form-group"><label for="date">Preferred Date</label><input type="date" id="date" name="date" required class="form-control"></div>
+                    <div class="form-group"><label for="message">Additional Information</label><textarea id="message" name="message" class="form-control"></textarea></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn submit-btn">Submit Booking Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function bookingmodal(servicetype) {
+        document.getElementById("service").value = servicetype;
+        const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+        modal.show();
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const forminfo = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            petType: document.getElementById("pet-type").value,
+            service: document.getElementById("service").value,
+            date: document.getElementById("date").value,
+            message: document.getElementById("message").value
+        };
+
+        const subject = `Booking Request for ${forminfo.service}`;
+        const body = `Name: ${forminfo.name}%0D%0AEmail: ${forminfo.email}%0D%0APhone: ${forminfo.phone}%0D%0APet Type: ${forminfo.petType}%0D%0AService: ${forminfo.service}%0D%0APreferred Date: ${forminfo.date}%0D%0AAdditional Info: ${forminfo.message || 'None'}`;
+
+        window.location.href = `mailto:sneha.kamble24@pccoepune.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        alert("Thank you for your booking request! We'll contact you shortly.");
+        document.getElementById("bookingForm").reset();
+        const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+        modal.hide();
+    });
+</script>
+</body>
+</html>

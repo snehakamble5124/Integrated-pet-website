@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawbbles - Products</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-paw"></i> Pawbbles</div>
+        <p style="font-size: 0.9rem;">Premium pet products for your furry friends</p>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <div class="nav-center-container">
+                <ul class="nav-items">
+                    <li>
+                        <!-- <a href="index.html"><i class="fas fa-home"></i> Home</a> -->
+                    </li>
+                    <li class="dropdown">
+                        <a href="product.html" class="active"><i class="fas fa-shopping-bag"></i> Products</a>
+                    </li>
+                    <li>
+                        <a href="training.html"><i class="fas fa-graduation-cap"></i> Training</a>
+                    </li>
+                    <li>
+                        <a href="service.html"><i class="fas fa-paw"></i> Services</a>
+                    </li>
+                    <li>
+                        <a href="event.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                    </li>
+                    <li>
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Categories</h2>
+            <ul>
+                <li><a href="#" class="category-link active" data-category="featured">Featured</a></li>
+                <li><a href="#" class="category-link" data-category="accessories">Accessories</a></li>
+                <li><a href="#" class="category-link" data-category="clothes">Clothes</a></li>
+                <li><a href="#" class="category-link" data-category="food">Food</a></li>
+                <li><a href="#" class="category-link" data-category="medicines">Medicines</a></li>
+                <li><a href="#" class="category-link" data-category="toys">Toys</a></li>
+                <li><a href="#" class="category-link" data-category="grooming">Grooming</a></li>
+            </ul>
+        </aside>
+        
+        <main class="main-content">
+            <div class="search-filter-container">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search products...">
+                </div>
+                <div class="pet-filter">
+                    <button class="pet-filter-btn active" data-pet="all">All Pets</button>
+                    <button class="pet-filter-btn" data-pet="dog">Dogs</button>
+                    <button class="pet-filter-btn" data-pet="cat">Cats</button>
+                </div>
+                
+                <div class="cart-icon-container">
+                    <div class="cart-icon" id="cart-icon">
+                        <i class="fas fa-shopping-cart fa-lg"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Products -->
+            <div id="featured" class="category-content active-category">
+                <h1 class="page-title">Featured Pet Products</h1>
+                <p class="page-description">Discover our premium selection of pet care products for your furry friends.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="food" data-id="1">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Dog+Food" alt="Premium Dog Food">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Premium Dog Food</h3>
+                            <div class="product-price">₹240.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="cat" data-category="toys" data-id="2">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Cat+Post" alt="Cat Scratching Post">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Scratching Toy</h3>
+                            <div class="product-price">₹320.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="dog" data-category="clothes" data-id="3">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Dog+Jacket" alt="Dog Winter Jacket">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Winter Jacket</h3>
+                            <div class="product-price">₹209.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="all" data-category="accessories" data-id="4">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Bed" alt="Orthopedic Pet Bed">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Orthopedic Pet Bed</h3>
+                            <div class="product-price">₹590.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accessories Products -->
+            <div id="accessories" class="category-content">
+                <h1 class="page-title">Pet Accessories</h1>
+                <p class="page-description">High-quality accessories for your pets.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="accessories" data-id="5">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Collar" alt="Premium Dog Collar">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Premium Dog Collar</h3>
+                            <div class="product-price">₹190.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="dog" data-category="accessories" data-id="6">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Leash" alt="Retractable Leash">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Retractable Leash</h3>
+                            <div class="product-price">₹202.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="all" data-category="accessories" data-id="7">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=GPS+Tracker" alt="Pet GPS Tracker">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pet GPS Tracker</h3>
+                            <div class="product-price">₹490.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="cat" data-category="accessories" data-id="8">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Bowl" alt="Stainless Steel Bowl">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Stainless Steel Bowl</h3>
+                            <div class="product-price">₹120.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clothes Products -->
+            <div id="clothes" class="category-content">
+                <h1 class="page-title">Pet Clothes</h1>
+                <p class="page-description">Stylish and comfortable clothes for your pets.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="clothes" data-id="9">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Winter+Jacket" alt="Dog Winter Jacket">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Winter Jacket</h3>
+                            <div class="product-price">₹290.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="dog" data-category="clothes" data-id="10">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Summer+Shirt" alt="Dog Summer Shirt">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Summer Shirt</h3>
+                            <div class="product-price">₹150.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="dog" data-category="clothes" data-id="11">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Raincoat" alt="Dog Raincoat">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Raincoat</h3>
+                            <div class="product-price">₹240.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="cat" data-category="clothes" data-id="12">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Sweater" alt="Cat Sweater">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Sweater</h3>
+                            <div class="product-price">₹180.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Food Products -->
+            <div id="food" class="category-content">
+                <h1 class="page-title">Pet Food</h1>
+                <p class="page-description">Nutritious and delicious food for your pets.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="food" data-id="13">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Dog+Food" alt="Premium Dog Food">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Premium Dog Food</h3>
+                            <div class="product-price">₹204.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="cat" data-category="food" data-id="14">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Cat+Food" alt="Grain-Free Cat Food">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Grain-Free Cat Food</h3>
+                            <div class="product-price">₹190.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="dog" data-category="food" data-id="15">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Pet+Snacks" alt="Organic Pet Snacks">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Organic Dog Snacks</h3>
+                            <div class="product-price">₹90.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="cat" data-category="food" data-id="16">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Wet+Food" alt="Wet Cat Food">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Wet Cat Food</h3>
+                            <div class="product-price">₹120.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Medicines Products -->
+            <div id="medicines" class="category-content">
+                <h1 class="page-title">Pet Medicines</h1>
+                <p class="page-description">Healthcare products for your pet's wellbeing.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="medicines" data-id="17">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Flea+Treatment" alt="Flea & Tick Treatment">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Flea Treatment</h3>
+                            <div class="product-price">₹390.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="dog" data-category="medicines" data-id="18">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Joint+Care" alt="Joint Care Supplement">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Joint Care</h3>
+                            <div class="product-price">₹209.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="cat" data-category="medicines" data-id="19">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Vitamins" alt="Multivitamin Chews">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Multivitamin</h3>
+                            <div class="product-price">₹17.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="all" data-category="medicines" data-id="20">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Dewormer" alt="Pet Dewormer">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pet Dewormer</h3>
+                            <div class="product-price">₹150.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Toys Products -->
+            <div id="toys" class="category-content">
+                <h1 class="page-title">Pet Toys</h1>
+                <p class="page-description">Fun and engaging toys for your pets.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="toys" data-id="21">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Chew+Toy" alt="Dental Chew Toy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Chew Toy</h3>
+                            <div class="product-price">₹12.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="dog" data-category="toys" data-id="22">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Interactive+Toy" alt="Interactive Puzzle Toy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Puzzle Toy</h3>
+                            <div class="product-price">₹18.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="cat" data-category="toys" data-id="23">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Cat+Teaser" alt="Cat Teaser Wand">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Teaser Wand</h3>
+                            <div class="product-price">₹80.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="cat" data-category="toys" data-id="24">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Fetch+Toy" alt="Cat Ball Toy">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Ball Toy</h3>
+                            <div class="product-price">₹15.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grooming Products -->
+            <div id="grooming" class="category-content">
+                <h1 class="page-title">Pet Grooming</h1>
+                <p class="page-description">Products to keep your pet clean and healthy.</p>
+                
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-pet="dog" data-category="grooming" data-id="25">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Shampoo" alt="Hypoallergenic Shampoo">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Shampoo</h3>
+                            <div class="product-price">₹99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-card" data-pet="dog" data-category="grooming" data-id="26">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Brush" alt="Slicker Brush">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Dog Slicker Brush</h3>
+                            <div class="product-price">₹80.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="product-card" data-pet="cat" data-category="grooming" data-id="27">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Nail+Trimmer" alt="Pet Nail Trimmer">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Cat Nail Trimmer</h3>
+                            <div class="product-price">₹40.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="product-card" data-pet="all" data-category="grooming" data-id="28">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/250/ff7e5f/ffffff?text=Grooming+Kit" alt="Complete Grooming Kit">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Grooming Kit</h3>
+                            <div class="product-price">₹250.99</div>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> Your Shopping Cart</h2>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-item">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">₹0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>GST (18%):</span>
+                    <span id="cart-gst">₹0.00</span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total:</span>
+                    <span id="cart-total">₹0.00</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button class="btn continue-shopping" id="continue-shopping">Continue Shopping</button>
+                <button class="btn checkout" id="checkout">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Pawbbles</h3>
+                <p>We are dedicated to providing the best care for your pets through quality products, services, and community events.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Veterinary Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Grooming</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Training</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Day Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Boarding</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Pet Street, Mumbai</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +91 9876543210</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> info@pawbbles.com</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pawbbles. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Item added to cart!</span>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawbbles - Training Videos</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Training page specific styles */
+        .training-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-info p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Simple video title only */
+        .simple-title {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .simple-title h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-paw"></i> Pawbbles</div>
+        <p style="font-size: 0.9rem;">Training videos for your furry friends</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <!-- <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li> -->
+            <li>
+                <a href="product.html"><i class="fas fa-shopping-bag"></i> Products</a>
+            </li>
+            <li><a href="training.html" class="active"><i class="fas fa-graduation-cap"></i> Training</a></li>
+            <li><a href="service.html"><i class="fas fa-paw"></i> Services</a></li>
+            <li><a href="event.html"><i class="fas fa-calendar-alt"></i> Events</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+    </nav> 
+    
+    <div class="training-container">
+        <div class="page-header">
+            <h1>Pet Training Videos</h1>
+            <p>Watch and learn with our collection of pet training videos</p>
+        </div>
+
+        <div class="video-grid">
+            <!-- Dog Training Videos -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Dog+Training+Basics">
+                        <source src="dog.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Basic Dog Training Commands</h3>
+                    <p>Essential commands every dog should know</p>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Leash+Training">
+                        <source src="dog1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Leash Training Your Dog</h3>
+                </div>
+            </div>
+
+            <!-- Cat Training Videos -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Cat+Grooming">
+                        <source src="cat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Cat Grooming Tutorial</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Litter+Box+Training">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Litter Box Training for Cats</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Cat+Behavior">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Understanding Cat Behavior</h3>
+                </div>
+            </div>
+
+            <!-- Other Pets Videos -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Rabbit+Care">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Rabbit Health & Care Guide</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Turtle+Care">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Turtle Care Guide</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Fish+Care">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Aquarium Fish Care</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Puppy+Training">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Puppy Socialization Tips</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Parrot+Training">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Parrot Training Basics</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/ff7e5f/ffffff?text=Hamster+Care">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Hamster Care Guide</h3>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <video controls poster="https://via.placeholder.com/640x360/feb47b/ffffff?text=Guinea+Pig+Care">
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="simple-title">
+                    <h3>Guinea Pig Care Tips</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Pawbbles</h3>
+                <p>We are dedicated to providing the best care for your pets through quality products, services, and community events.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Veterinary Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Grooming</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Training</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Day Care</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Boarding</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Pet Street, Mumbai</li>
+                    <li><i class="fas fa-phone"></i> +91 9876543210</li>
+                    <li><i class="fas fa-envelope"></i> info@Pawbbles.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Pawbbles. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
